@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-lg p-4 rounded">
+        <h2 class="text-center mb-4 text-primary">📄 Upload Article</h2>
+        <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+            {% csrf_token %}
+            
+            <!-- Makale Başlığı -->
+            <div class="mb-3">
+                <label for="id_title" class="form-label fw-bold">📌 Article Title</label>
+                {{ form.title }}
+            </div>
+            
+            <!-- PDF Dosyası -->
+            <div class="mb-3">
+                <label for="id_pdf_file" class="form-label fw-bold">📂 PDF File</label>
+                <div class="input-group">
+                    <span class="input-group-text">📎</span>
+                    {{ form.pdf_file }}
+                </div>
+            </div>
+            
+            <!-- E-Posta -->
+            <div class="mb-3">
+                <label for="id_author_email" class="form-label fw-bold">📧 E-Mail</label>
+                <div class="input-group">
+                    <span class="input-group-text">@</span>
+                    {{ form.author_email }}
+                </div>
+            </div>
+            
+            <!-- Yükle Butonu -->
+            <div class="text-center">
+                <button type="submit" class="btn btn-success btn-lg shadow-sm">
+                    🚀 Upload
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Opsiyonel: Form alanlarına özel stil -->
+<style>
+    .container {
+        max-width: 500px;
+    }
+    .card {
+        border-radius: 12px;
+        background: #ffffff;
+    }
+    input, select, textarea {
+        border-radius: 8px !important;
+        border: 1px solid #ced4da;
+        padding: 10px;
+        width: 100%;
+    }
+    .btn-success {
+        background-color: #28a745;
+        border: none;
+        padding: 10px 20px;
+    }
+    .btn-success:hover {
+        background-color: #218838;
+    }
+</style>
+
+{% endblock %}

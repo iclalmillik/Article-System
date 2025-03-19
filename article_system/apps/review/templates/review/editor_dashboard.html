@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">🔒 Editor Panel - List of Article</h2>
+    
+    <table class="table table-striped table-hover mt-4">
+        <thead class="table-dark">
+            <tr>
+                <th>📌 Title</th>
+                <th>✉️ Author</th>
+                <th>📅 Upload Date</th>
+                <th>📄 PDF</th>
+                <th>📝 Article Details  </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for article in articles %}
+                <tr>
+                    <td>{{ article.title }}</td>
+                    <td>{{ article.author_email }}</td>
+                    <td>{{ article.submission_date }}</td>
+                    <td>
+                        {% if article.pdf_file %}
+                            <a href="{{ article.pdf_file.url }}" class="btn btn-primary btn-sm" target="_blank">📂 Open PDF</a>
+                        {% else %}
+                            <span class="badge bg-danger">No PDF</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{% url 'review:article_detail' article.id %}" class="btn btn-primary btn-sm" target="_blank">📂 View Details</a>
+                    </td>
+                    
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4" class="text-center text-muted">There are no articles uploaded yet.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
