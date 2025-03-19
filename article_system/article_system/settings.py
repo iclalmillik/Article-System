@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'apps.users',   # ✅ users uygulaması artık "apps" içinde olduğu için böyle yazmalısın
     'apps.articles',
     'apps.review',
+    'apps.analysis',
 ]
 
 MIDDLEWARE = [

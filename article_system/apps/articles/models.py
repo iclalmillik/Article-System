@@ -18,3 +18,10 @@ def save(self, *args, **kwargs):
 
 def __str__(self):
         return f"{self.title} - {self.tracking_id}"
+    
+    
+def get_pdf_url(self):
+        """Makaleye ait PDF'in URL'sini döndürür."""
+        if self.pdf_file:
+            return self.pdf_file.url
+        return None

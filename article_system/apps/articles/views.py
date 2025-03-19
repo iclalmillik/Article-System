@@ -34,6 +34,7 @@ def check_article_status(request):
             return render(request, 'articles/status.html', {'error': 'Makale bulunamadı.'})
 
     return render(request, 'articles/status.html')
+
 def article_detail(request, article_id):
     article = get_object_or_404(Article, id=article_id)
     referees = Referee.objects.all()  # Tüm hakemleri getir

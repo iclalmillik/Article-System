@@ -46,7 +46,7 @@ def article_detail(request, article_id):
     article = get_object_or_404(Article, id=article_id)
     referees = Referee.objects.all()  # Tüm hakemleri al
 
-    return render(request, 'review/article_detail.html', {
+    return render(request, 'articles/article_detail.html', {
         'article': article,
         'referees': referees  # Şablona hakemleri gönderiyoruz
     })

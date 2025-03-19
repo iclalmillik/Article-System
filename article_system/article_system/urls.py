@@ -27,6 +27,7 @@ urlpatterns = [
     path('', home, name='home'),  # ✅ Ana sayfa yönlendirmesi
     path('articles/', include('apps.articles.urls')),  # ✅ Makale işlemleri
     path('review/', include('apps.review.urls')),
+    path('analysis/', include('apps.analysis.urls')), 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
  

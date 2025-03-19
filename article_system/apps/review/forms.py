@@ -20,7 +20,7 @@ class RefereeRegistrationForm(forms.ModelForm):
             'username': self.cleaned_data['email'],  # Email'i username olarak kullan
             'first_name': self.cleaned_data['first_name'],
             'last_name': self.cleaned_data['last_name'],
-             'user_type': 'referee', 
+            'user_type': 'referee', 
         }
         user = CustomUser.objects.create_user(**user_data)
        
