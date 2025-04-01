@@ -6,4 +6,4 @@ class ReviewConfig(AppConfig):
     name = 'apps.review'
     
 def ready(self):
-    import apps.review.signals  # Signals'ı projeye dahil et
+    import apps.review.signals  

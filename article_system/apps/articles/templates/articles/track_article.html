@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">📄Article Tracking and Messaging with the Editor</h2>
+
+    <form method="post" action="{% url 'articles:track_article' %}" class="mb-4">
+        {% csrf_token %}
+        <div class="input-group">
+            <input type="text" name="tracking_id" class="form-control" placeholder="📌 Tracking Number" required>
+            <button class="btn btn-primary" type="submit">🔍 Query</button>
+        </div>
+    </form>
+
+    {% if article %}
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">{{ article.title }}</h5>
+            <p class="card-text"><strong>📅 Post Date:</strong> {{ article.submission_date|date:"d M Y H:i" }}</p>
+            <p class="card-text"><strong>📌 Status:</strong> {{ article.review_status }}</p>
+        </div>
+    </div>
+    
+    {% if review_result %}
+    <div class="card mb-4">
+        <div class="card-header bg-success text-white">
+            Evaluation Result
+        </div>
+        <div class="card-body">
+            <p><strong>Status:</strong> {{ article.review_status }}</p>
+            <p><strong>Point:</strong> {{ review_result.rating }}</p>
+            <p><strong>Explanations:</strong> {{ review_result.comments }}</p>
+
+            {% if article.pdf_file %}
+    <hr>
+    <h5>📄 Original Uploaded Article</h5>
+    <a href="{{ article.pdf_file.url }}" target="_blank" class="btn btn-outline-secondary">
+        View Original PDF
+    </a>
+{% else %}
+    <p class="text-muted">Original article not found.</p>
+{% endif %}
+        </div>
+    </div>
+    {% else %}
+    <p class="text-muted">There are no editor-approved reviews yet.</p>
+    {% endif %}
+
+       
+        <div class="card mb-4">
+            <div class="card-header bg-warning text-dark">📤 Upload Revised Article</div>
+            <div class="card-body">
+    
+                {% if article.revised_file %}
+                    <p><strong>Previously Uploaded Revised File:</strong></p>
+                    <a href="{{ article.revised_file.url }}" target="_blank" class="btn btn-outline-primary mb-3">
+                        🔍 View Revised PDF
+                    </a>
+                {% endif %}
+    
+                <form method="post" enctype="multipart/form-data" action="{% url 'articles:upload_revised' article.id %}">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        {{ revised_form.revised_file.label_tag }}
+                        {{ revised_form.revised_file }}
+                    </div>
+                    <input type="hidden" name="tracking_id" value="{{ article.tracking_id }}">
+                    <button type="submit" class="btn btn-primary">📤 Upload Revised PDF</button>
+                </form>
+            </div>
+        </div>
+    
+    
+  
+    <div class="card mb-4">
+        <div class="card-header bg-secondary text-white">📬Messaging History</div>
+        <div class="card-body" style="max-height: 300px; overflow-y: auto;">
+            {% if user_messages %}
+                {% for msg in user_messages %}
+                    <div class="mb-2">
+                        <strong>{{ msg.sender_role|title }}:</strong>
+                        <span>{{ msg.content }}</span><br>
+                        <small class="text-muted">{{ msg.timestamp|date:"d M Y H:i" }}</small>
+                    </div>
+                    <hr>
+                {% endfor %}
+            {% else %}
+                <p>There are no messages yet.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="hidden" name="article_id" value="{{ article.id }}">
+        <input type="hidden" name="tracking_id" value="{{ article.tracking_id }}"> 
+        <div class="mb-3">
+            {{ form.content.label_tag }}
+            {{ form.content }}
+        </div>
+        <button type="submit" class="btn btn-success">
+            📤 Send
+        </button>
+    </form>
+    {% elif searched %}
+        <div class="alert alert-danger mt-3"> No article found with such tracking number.</div>
+    {% endif %}
+</div>
+{% endblock %}

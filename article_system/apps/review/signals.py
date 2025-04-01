@@ -5,19 +5,15 @@ from .models import Referee
 
 @receiver(post_save, sender=CustomUser)
 def create_referee(sender, instance, created, **kwargs):
-    """
-    Yeni bir CustomUser eklendiğinde eğer 'referee' rolünde ise Referee tablosuna ekler.
-    """
+  
     if created and instance.user_type == 'referee':  
-                Referee.objects.create(user=instance, expertise="Uzmanlık Alanı Belirtilmedi")  # Varsayılan olarak boş bırakabiliriz
+                Referee.objects.create(user=instance, expertise="No Area of ​​Expertise Specified")  
 
 
 
 
 @receiver(post_save, sender=CustomUser)
 def save_referee(sender, instance, **kwargs):
-    """
-    CustomUser güncellendiğinde eğer 'referee' rolündeyse Referee tablosundaki bilgilerini de günceller.
-    """
+   
     if hasattr(instance, 'referee') and instance.user_type == 'referee':  
         instance.referee.save()

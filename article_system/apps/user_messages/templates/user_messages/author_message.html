@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">📨 Message with Editor</h2>
+
+ 
+    <form method="get" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="tracking_id" value="{{ tracking_id }}" class="form-control" placeholder="📌 Tracking No" required>
+            <button class="btn btn-primary">🔍 Query</button>
+        </div>
+    </form>
+
+    {% if article %}
+      
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">{{ article.title }}</h5>
+                <p><strong>Transfer:</strong> {{ article.submission_date|date:"d M Y H:i" }}</p>
+                <p><strong>Status:</strong> {{ article.review_status }}</p>
+            </div>
+        </div>
+  <div class="card mb-4">
+            <div class="card-header bg-dark text-white">📬 Message History</div>
+            <div class="card-body" style="max-height: 300px; overflow-y: auto;">
+                {% for msg in user_messages %}
+                    <div class="mb-2">
+                        <strong>{{ msg.sender_role|title }}:</strong> {{ msg.content }}<br>
+                        <small class="text-muted">{{ msg.timestamp|date:"d M Y H:i" }}</small>
+                    </div>
+                    <hr>
+                {% empty %}
+                    <p>There are no messages yet.</p>
+                {% endfor %}
+            </div>
+        </div>
+
+    
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-success">📤Send Message</button>
+        </form>
+    {% elif tracking_id %}
+        <div class="alert alert-danger mt-3">❌No article found for this tracking number.</div>
+    {% endif %}
+</div>
+{% endblock %}

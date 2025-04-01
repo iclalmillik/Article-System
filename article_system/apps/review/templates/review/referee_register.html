@@ -6,17 +6,17 @@
         <div class="col-md-8">
             <div class="card shadow">
                 <div class="card-header bg-primary text-white">
-                    <h3 class="mb-0">🧑‍⚖️ Yeni Hakem Kaydı</h3>
+                    <h3 class="mb-0">🧑‍⚖️New Referee Registration</h3>
                 </div>
                 <div class="card-body">
                     <form method="post">
                         {% csrf_token %}
                         <div class="mb-3">
-                            <label for="first_name" class="form-label">Ad</label>
+                            <label for="first_name" class="form-label">Name</label>
                             <input type="text" class="form-control" id="first_name" name="first_name" required>
                         </div>
                         <div class="mb-3">
-                            <label for="last_name" class="form-label">Soyad</label>
+                            <label for="last_name" class="form-label">Surname</label>
                             <input type="text" class="form-control" id="last_name" name="last_name" required>
                         </div>
                         <div class="mb-3">
@@ -25,12 +25,12 @@
                         </div>
                       
                         <div class="mb-3">
-                            <label for="expertise" class="form-label">Uzmanlık Alanı</label>
+                            <label for="expertise" class="form-label">Area of ​​Expertise</label>
                             <input type="text" class="form-control" id="expertise" name="expertise" required>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Kaydet</button>
-                            <a href="{% url 'review:referee_list' %}" class="btn btn-secondary">Geri</a>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <a href="{% url 'review:referee_list' %}" class="btn btn-secondary">Back</a>
                         </div>
                     </form>
                 </div>

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Confirm Evaluation Process</h2>
+    <p><strong>Article:</strong> {{ article.title }}</p>
+    <p><strong>Evaluation Status:</strong> {{ review.get_review_status_display }}</p>
+    <p><strong>Point:</strong> {{ review.rating }}</p>
+    <p><strong>Explanations:</strong> {{ review.comments }}</p>
+    
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">De-anonymize and Forward to Author</button>
+        <a href="{% url 'review:editor_dashboard' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

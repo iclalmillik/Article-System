@@ -2,31 +2,15 @@
 
 {% block content %}
 <div class="container mt-4">
-    <h2 class="text-center mb-4">🧑‍⚖️ Hakem Yönetim Paneli</h2>
-    
-    <div class="row">
-        <div class="col-md-6 mb-4">
-            <div class="card shadow h-100">
-                <div class="card-body text-center">
-                    <h5 class="card-title"><i class="fas fa-user-plus"></i> Hakem Yönetimi</h5>
-                    <p class="card-text">Yeni hakem ekleyin veya mevcut hakemleri görüntüleyin.</p>
-                    <div class="mt-3">
-                        <a href="{% url 'review:referee_register' %}" class="btn btn-success m-1">🧑‍⚖️ Yeni Hakem Kaydı</a>
-                        <a href="{% url 'review:referee_list' %}" class="btn btn-primary m-1">📋 Hakem Listesi</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="col-md-6 mb-4">
-            <div class="card shadow h-100">
-                <div class="card-body text-center">
-                    <h5 class="card-title"><i class="fas fa-tasks"></i> Değerlendirme Durumu</h5>
-                    <p class="card-text">Makale değerlendirme durumlarını görüntüleyin.</p>
-                    <div class="mt-3">
-                        <a href="#" class="btn btn-info m-1">📊 Değerlendirme Raporları</a>
-                    </div>
-                </div>
+    <h2 class="text-center mb-4">🧑‍⚖️Referee Management Panel</h2>
+
+    <div class="card shadow mb-4">
+        <div class="card-body text-center">
+            <h5 class="card-title"><i class="fas fa-user-plus"></i>Referee Management</h5>
+            <p class="card-text">Add new referees or view existing referees.</p>
+            <div class="mt-3">
+                <a href="{% url 'review:referee_register' %}" class="btn btn-success m-1">🧑‍⚖️ New Referee Registration</a>
+                <a href="{% url 'review:referee_list' %}" class="btn btn-primary m-1">📋Referee List</a>
             </div>
         </div>
     </div>

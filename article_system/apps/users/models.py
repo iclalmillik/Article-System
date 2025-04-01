@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
-#Django’nun varsayılan User modeli yerine AbstractUser'ı genişleterek özel bir kullanıcı modeli oluşturacağız.
+
 
 class CustomUser(AbstractUser):
     USER_TYPES =[

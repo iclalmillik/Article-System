@@ -16,45 +16,80 @@
             <th>📅 Upload Date:</th>
             <td>{{ article.submission_date|date:"d M Y H:i" }}</td>
         </tr>
+        <tr>
+            <th>🚀Area of ​​the article:</th>
+            <td>{{ article.subject_area }}</td>
+        </tr>
         
     </table>
 
-     <!-- 🔽 Anahtar Kelimeler Butonu -->
+    
      <div class="text-center mt-4">
         <a href="{% url 'analysis:analyze_keywords' article.id %}" class="btn btn-info btn-lg">
-            🏷️ Anahtar Kelimeleri Gör
+            🏷️See Keywords
         </a>
     </div>
+    
+  
+   
+<div class="text-center mt-4">
+    {% if review %}
+        <a href="{% url 'review:process_review' article.id review.id %}" class="btn btn-info">
+            Evaluation
+        </a>
+    {% else %}
+        <span class="text-muted">No evaluation record found.</span>
+    {% endif %}
+</div>
    
 
-    <!-- 🔽 Hakem Atama Formu -->
+<div class="container mt-4">
+    <div class="card shadow-lg p-4 rounded">
+        <h5 class="text-center text-primary">🔒Article Anonymization Procedures</h5>
+        
+        <div class="d-flex justify-content-center gap-3 mt-3">
+            <a href=" {% url 'analysis:anonymization_pdf' article.id %}"class="btn btn-primary">
+                ⚙️ Anonymization Settings
+            </a>
+            
+            {% if article.anonymization_setting.anonymized_file %}
+            <a  class="btn btn-success">
+                📥Download Anonymized PDF
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>  
+
+    
     <div class="container mt-4">
         <div class="card shadow-lg p-4 rounded">
-            <h5 class="text-center text-primary">🧑‍⚖️ Hakem Atama Paneli</h5>
+            <h5 class="text-center text-primary">🧑‍⚖️ Referee Appointment Panel</h5>
     
             <form method="post" action="{% url 'review:assign_referee' article.id %}" class="mt-3">
                 {% csrf_token %}
                 <div class="mb-3">
-                    <label for="referee" class="form-label">🎯 Hakem Seç</label>
+                    <label for="referee" class="form-label">🎯Select Referee</label>
                     <select class="form-select text_dark" id="referee" name="referee" required>
-                        <option value="" disabled selected>📌 Hakem Seçiniz...</option>
+                        <option value="" disabled selected>📌Select Referee...</option>
                         {% for referee in referees %}
                             <option value="{{ referee.id }}">{{ referee.user.get_full_name|default:referee.user.username }} - {{ referee.expertise }}</option>
                         {% empty %}
-                            <option disabled>⚠️ Hakem Bulunamadı</option>
+                            <option disabled>⚠️ No Referee Found</option>
                         {% endfor %}
                     </select>
                 </div>
     
                 <div class="text-center">
-                    <button type="submit" class="btn btn-warning btn-sm">🧑‍⚖️ Hakemi Ata</button>
+                    <button type="submit" class="btn btn-warning btn-sm">🧑‍⚖️Assign the referee</button>
                 </div>
             </form>
         </div>
     </div>
+
   
     
-    <!-- Başarı mesajı -->
+  
     {% if messages %}
         {% for message in messages %}
             <div class="alert alert-success mt-3">{{ message }}</div>
@@ -63,4 +98,16 @@
 </div>
 
 
+<div class="container mt-4">
+    <div class="text-center">
+        <a href="{% url 'user_messages:editor_message' article.id %}" class="btn btn-primary btn-lg">
+            See Messages
+        </a>
+    </div>
+</div>
+ 
+
+
 {% endblock %}
+
+

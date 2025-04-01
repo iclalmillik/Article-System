@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Referee ,Review # ✅ Hakem modelini içe aktardık
+from .models import Referee ,Review 
 
 admin.site.register(Referee)  
 

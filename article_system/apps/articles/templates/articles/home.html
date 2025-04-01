@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2 style="text-align:center; margin-top: 50px;">Welcome to the Secure Document Anonymization System!</h2>
-    <p style="text-align:center;">to upload an article <a href="{% url 'articles:upload_article' %}">click here!</a>.</p>
+<div class="text-center mt-5">
+    <h2>📄WELCOME to Secure Document Anonymization System!</h2>
+    <p class="mt-3">To Upload an Article 
+        <a href="{% url 'articles:upload_article' %}">click here</a>.
+    </p>
+
+    <a href="{% url 'articles:track_article' %}" class="btn btn-outline-primary btn-lg mt-4">
+        📄 View Article Status with Tracking Number
+    </a>
+</div>
 {% endblock %}

@@ -38,11 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-       # Özel Uygulamalarımız
-    'apps.users',   # ✅ users uygulaması artık "apps" içinde olduğu için böyle yazmalısın
+    # Özel Uygulamalarımız
+    'apps.users',   
     'apps.articles',
     'apps.review',
     'apps.analysis',
+    'apps.user_messages',
+
 ]
 
 MIDDLEWARE = [
@@ -75,7 +77,7 @@ TEMPLATES = [
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
-MEDIA_URL = '/media/'
+MEDIA_URL = '/media'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 AUTH_USER_MODEL = 'users.CustomUser'
@@ -150,3 +152,4 @@ import os
 
 MEDIA_URL = '/media/'  # ✅ Medya dosyalarının URL adresi
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # ✅ Medya dosyalarının saklanacağı dizin
+AUTH_USER_MODEL = 'users.CustomUser'

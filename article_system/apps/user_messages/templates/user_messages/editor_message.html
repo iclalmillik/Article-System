@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">📨Message with Author</h2>
+    <div class="mb-3"><strong>Article:</strong> {{ article.title }}</div>
+
+  
+    <div class="card mb-4">
+        <div class="card-header bg-secondary text-white">💬History Message</div>
+        <div class="card-body" style="max-height: 300px; overflow-y: auto;">
+            {% for msg in messages %}
+                <div class="mb-2">
+                    <strong>{{ msg.sender_role|title }}:</strong> {{ msg.content }}<br>
+                    <small class="text-muted">{{ msg.timestamp|date:"d M Y H:i" }}</small>
+                </div>
+                <hr>
+            {% empty %}
+                <p>No messages yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">✉️ Send Message</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center">Article Evaluation</h2>
+    <p><strong>Article:</strong> {{ article.title }}</p>
+    <p><strong>Referee:</strong> {{ referee.user.username }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+       
+        <input type="hidden" name="referee_id" value="{{ referee.id }}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a href="{% url 'review:referee_assigned_articles' referee.id %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

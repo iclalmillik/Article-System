@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from apps.articles.views import home  # ✅ Yeni ekledik
+from apps.articles.views import home  
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -24,10 +24,12 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home, name='home'),  # ✅ Ana sayfa yönlendirmesi
-    path('articles/', include('apps.articles.urls')),  # ✅ Makale işlemleri
+    path('', home, name='home'), 
+    path('articles/', include('apps.articles.urls')),  
     path('review/', include('apps.review.urls')),
     path('analysis/', include('apps.analysis.urls')), 
+    path('messages/', include('apps.user_messages.urls', namespace='user_messages')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
  

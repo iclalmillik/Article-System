@@ -8,13 +8,13 @@
         <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
             {% csrf_token %}
             
-            <!-- Makale Başlığı -->
+       
             <div class="mb-3">
                 <label for="id_title" class="form-label fw-bold">📌 Article Title</label>
                 {{ form.title }}
             </div>
             
-            <!-- PDF Dosyası -->
+         
             <div class="mb-3">
                 <label for="id_pdf_file" class="form-label fw-bold">📂 PDF File</label>
                 <div class="input-group">
@@ -22,8 +22,7 @@
                     {{ form.pdf_file }}
                 </div>
             </div>
-            
-            <!-- E-Posta -->
+           
             <div class="mb-3">
                 <label for="id_author_email" class="form-label fw-bold">📧 E-Mail</label>
                 <div class="input-group">
@@ -32,7 +31,7 @@
                 </div>
             </div>
             
-            <!-- Yükle Butonu -->
+          
             <div class="text-center">
                 <button type="submit" class="btn btn-success btn-lg shadow-sm">
                     🚀 Upload
@@ -42,7 +41,7 @@
     </div>
 </div>
 
-<!-- Opsiyonel: Form alanlarına özel stil -->
+
 <style>
     .container {
         max-width: 500px;
@@ -68,3 +67,6 @@
 </style>
 
 {% endblock %}
+
+
+
