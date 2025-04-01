@@ -19,10 +19,7 @@ Bu proje, akademik makale süreçlerini güvenli ve anonim bir şekilde yönetme
 1. Python yüklü değilse [python.org](https://www.python.org/downloads/) üzerinden indirin.
 
 2. Gereken paketleri kurun:
-```bash
-pip install -r requirements.txt
-python -m spacy download en_core_web_sm
-```
+
 3. Veritabanı kurulumunu yapın:
 ```bash
 python manage.py makemigrations
@@ -35,16 +32,11 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-Tarayıcıdan şu adrese gidin:
-```
-http://127.0.0.1:8000/
-```
-
 ---
 
 ## Kullanıcı Rolleri
 
-Bu sistemde 3 temel kullanıcı tipi bulunmaktadır:
+Bu sistemde 3 temel kullanıcı tii bulunmaktadır:
 
 ### Yazar (Author)
 - Giriş yapmadan makale yükleyebilir.
