@@ -1,10 +1,10 @@
-# 🔐 Secure Article Management & Review System
+# Secure Article Management & Review System
 
 Bu proje, akademik makale süreçlerini güvenli ve anonim bir şekilde yönetmek için geliştirilmiş bir Django tabanlı sistemdir. Yazarlar, editörler ve hakemler arasında şifreli, anonimleştirilmiş ve izlenebilir bir makale değerlendirme süreci sağlar.
 
 ---
 
-## 📀 Uygulama Kurulumu ve Çalıştırılması
+## Uygulama Kurulumu ve Çalıştırılması
 
 ### Gereksinimler
 
@@ -42,24 +42,24 @@ http://127.0.0.1:8000/
 
 ---
 
-## 👥 Kullanıcı Rolleri
+## Kullanıcı Rolleri
 
 Bu sistemde 3 temel kullanıcı tipi bulunmaktadır:
 
-### 🧑‍💻 Yazar (Author)
+### Yazar (Author)
 - Giriş yapmadan makale yükleyebilir.
 - Takip numarası ile makale durumu sorgular.
 - Editörle mesajlaşabilir.
 - Revize PDF yükleyebilir (eski dosya otomatik silinir).
 
-### 🧑‍⚖️ Editör (Editor)
+### Editör (Editor)
 - Tüm makaleleri görüntüler.
 - Hakem atar, anonimleştirme başlatır.
 - Şifrelenmiş bilgileri görüntüler.
 - Yazar ve hakemle mesajlaşabilir.
 - Revize makaleyi yeniden hakeme iletebilir.
 
-### 🧑‍🔬 Hakem (Referee)
+### Hakem (Referee)
 - Sisteme sadece dropdown ile girer.
 - Atandığı makaleyi ve anonim PDF'ini görüntüler.
 - Değerlendirme formu doldurur.
@@ -67,7 +67,7 @@ Bu sistemde 3 temel kullanıcı tipi bulunmaktadır:
 
 ---
 
-## 🔒 Anonimleştirme ve Şifreleme
+##  Anonimleştirme ve Şifreleme
 
 - Abstract öncesindeki kişisel bilgiler (ad, kurum, e-posta) spaCy ve regex ile tespit edilir.
 - Redakte edilen bilgiler `anonym_list`'e eklenir.
@@ -76,37 +76,20 @@ Bu sistemde 3 temel kullanıcı tipi bulunmaktadır:
 
 ---
 
-## 📂 Proje Yapısı
 
-```
-article_system/
-├── apps/
-│   ├── articles/         # Makale modeli ve yükleme
-│   ├── analysis/         # PDF işleme ve anonimleştirme
-│   ├── review/           # Hakem işlemleri
-│   ├── users/            # Kullanıcılar
-│   └── user_messages/    # Yazar-editor mesajlaşma
-├── media/                # Dosyalar
-├── templates/            # HTML sayfaları
-├── static/               # CSS ve JS
-└── manage.py
-```
-
----
-
-## 📈 Loglama Sistemi
+##  Loglama Sistemi
 
 - Sistem aksiyonları `ArticleLog` modeli ile kaydedilir.
 - Loglar admin panelde ve ayrıca "See Logs" ekranında görüntülenebilir.
 
 ---
-# 🔐 Secure Article Management & Review System
+# Secure Article Management & Review System
 
 This project is a Django-based system developed to manage academic article workflows securely and anonymously. It enables encrypted, anonymized, and trackable article review processes between authors, editors, and referees.
 
 ---
 
-## 📦 Installation and Running the Application
+##  Installation and Running the Application
 
 ### Requirements
 
@@ -145,24 +128,24 @@ http://127.0.0.1:8000/
 
 ---
 
-## 👥 User Roles
+##  User Roles
 
 There are 3 main user types in this system:
 
-### 🧑‍💻 Author
+###  Author
 - Can upload articles without logging in.
 - Tracks the article status via a unique **Tracking ID**.
 - Can message the editor.
 - Can upload a revised PDF (the old file is automatically removed).
 
-### 🧑‍⚖️ Editor
+###  Editor
 - Views all uploaded articles.
 - Assigns referees and initiates anonymization.
 - Can view encrypted anonymized data.
 - Can communicate with both authors and referees.
 - Can reassign revised articles to referees.
 
-### 🧑‍🔬 Referee
+###  Referee
 - Logs in by simply selecting their name from a dropdown (no password required).
 - Views assigned articles and their anonymized PDFs.
 - Submits evaluations through a form.
@@ -170,7 +153,7 @@ There are 3 main user types in this system:
 
 ---
 
-## 🔐 Anonymization & Encryption
+##  Anonymization & Encryption
 
 - Personal information (name, institution, email) before the abstract is detected using spaCy and regex.
 - These are stored in `anonym_list`.
@@ -179,25 +162,9 @@ There are 3 main user types in this system:
 
 ---
 
-## 📁 Project Structure
 
-```
-secure-article-system/
-├── apps/
-│   ├── articles/         # Article model and uploading
-│   ├── analysis/         # PDF processing and anonymization
-│   ├── review/           # Referee operations
-│   ├── users/            # Users
-│   └── user_messages/    # Author-editor messaging
-├── media/                # Uploaded files
-├── templates/            # HTML templates
-├── static/               # CSS and JS
-└── manage.py
-```
 
----
-
-## 📊 Logging System
+##  Logging System
 
 - All key system actions are logged using the `ArticleLog` model.
 - Logs can be viewed via the admin panel and the "See Logs" page.
@@ -207,39 +174,39 @@ secure-article-system/
 
 
 
-## 🖼️ Ekran Görüntüleri
 
-### 📥 Makale Yükleme ve Takip Arayüzü(Article Upload and Tracking Interface)
+
+### Makale Yükleme ve Takip Arayüzü(Article Upload and Tracking Interface)
 
 ![Makale Takip](https://github.com/iclalmillik/YazlabII-1/blob/main/images/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-04-01%20164620.png)
 
 ---
 
-### 🧑‍⚖️ Editör Paneli – Makale Listesi(Editor Panel – Article List)
+###  Editör Paneli – Makale Listesi(Editor Panel – Article List)
 
 ![Editör Paneli](https://github.com/iclalmillik/YazlabII-1/blob/main/images/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-04-01%20164641.png)
 
 ---
 
-### 📝 Makale Detay ve Hakem Atama Sayfası(Article Details and Referee Appointment Page)
+###  Makale Detay ve Hakem Atama Sayfası(Article Details and Referee Appointment Page)
 
 ![Makale Detay](https://github.com/iclalmillik/YazlabII-1/blob/main/images/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-04-01%20164702.png)
 
 ---
 
-### 🔒 Anonimleştirme Ayarları Sayfası(Anonymization Settings Page)
+###  Anonimleştirme Ayarları Sayfası(Anonymization Settings Page)
 
 ![Anonimleştirme Ayarları](https://github.com/iclalmillik/YazlabII-1/blob/main/images/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-04-01%20164726.png)
 
 ---
 
-### 🧠 Anahtar Kelime Analizi Arayüzü(Keyword Analysis Interface)
+###  Anahtar Kelime Analizi Arayüzü(Keyword Analysis Interface)
 
 ![Keyword Analizi](https://github.com/iclalmillik/YazlabII-1/blob/main/images/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-04-01%20164733.png)
 
 ---
 
-### 📬 Mesajlaşma Arayüzü [Yazar–Editör] (Messaging Interface [Author–Editor])
+###  Mesajlaşma Arayüzü [Yazar–Editör] (Messaging Interface [Author–Editor])
 
 ![Mesajlaşma](https://github.com/iclalmillik/YazlabII-1/blob/main/images/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-04-01%20164755.png)
 
