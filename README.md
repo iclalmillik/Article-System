@@ -12,7 +12,7 @@ Bu proje, akademik makale süreçlerini güvenli ve anonim bir şekilde yönetme
 - pip (Python Paket Yöneticisi)
 - Git (opsiyonel)
 - `en_core_web_trf` spaCy modeli
-- (Opsiyonel) MSSQL veya SQLite
+- (Opsiyonel) PostgreSQL
 
 ### Kurulum
 
@@ -114,7 +114,7 @@ This project is a Django-based system developed to manage academic article workf
 - pip (Python Package Manager)
 - Git (optional)
 - `en_core_web_sm` spaCy model
-- (Optional) MSSQL or SQLite
+- (Optional) PostgreSQL
 
 ### Setup
 
