@@ -36,7 +36,7 @@ python manage.py runserver
 
 ## Kullanıcı Rolleri
 
-Bu sistemde 3 temel kullanıcı tii bulunmaktadır:
+Bu sistemde 3 temel kullanıcı tipi bulunmaktadır:
 
 ### Yazar (Author)
 - Giriş yapmadan makale yükleyebilir.
@@ -174,31 +174,31 @@ There are 3 main user types in this system:
 
 ---
 
-###  Editör Paneli – Makale Listesi(Editor Panel – Article List)
+###  Editör Paneli – Makale Detayı(Editor Panel – Article Detail)
 
 ![Editör Paneli](https://github.com/iclalmillik/YazlabII-1/blob/main/images/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-04-01%20164641.png)
 
 ---
 
-###  Makale Detay ve Hakem Atama Sayfası(Article Details and Referee Appointment Page)
+###  Makale Anahtar Kelimeleri ve Alan Ataması(Article Keywords and Area Assignment)
 
 ![Makale Detay](https://github.com/iclalmillik/YazlabII-1/blob/main/images/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-04-01%20164702.png)
 
 ---
 
-###  Anonimleştirme Ayarları Sayfası(Anonymization Settings Page)
+###  Makale Takibi ve Editörle Mesajlaşma (Article Tracking and Messaging with the Editor)
 
 ![Anonimleştirme Ayarları](https://github.com/iclalmillik/YazlabII-1/blob/main/images/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-04-01%20164726.png)
 
 ---
 
-###  Anahtar Kelime Analizi Arayüzü(Keyword Analysis Interface)
+### Makale Yükleme Sayfası(Upload Article Page)
 
 ![Keyword Analizi](https://github.com/iclalmillik/YazlabII-1/blob/main/images/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-04-01%20164733.png)
 
 ---
 
-###  Mesajlaşma Arayüzü [Yazar–Editör] (Messaging Interface [Author–Editor])
+###  Anonimleştirme Ayarları Sayfası(Anonymization Settings Page)
 
 ![Mesajlaşma](https://github.com/iclalmillik/YazlabII-1/blob/main/images/Ekran%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC%202025-04-01%20164755.png)
 
